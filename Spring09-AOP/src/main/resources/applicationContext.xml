@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--注册bean-->
+    <bean id="userService" class="cn.edu.nyist.Service.UserServiceImpl"/>
+    <bean id="log" class="cn.edu.nyist.Log.Log"/>
+    <bean id="afterLog" class="cn.edu.nyist.Log.AfterLog"/>
+
+<!--    方式三：使用注解-->
+    <bean id="AnnotationPointCut" class="cn.edu.nyist.Diy.AnnotationPointCut"/>
+<!--    开启注解支持      JDK(默认  proxy-target-class="false")     cglib (proxy-target-class="true")-->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+
+
+
+<!--    方式一：使用原生Spring API接口-->
+    <!--aop的配置-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;切入点  expression:表达式匹配要执行的方法&ndash;&gt;-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* cn.edu.nyist.Service.UserServiceImpl.*(..))"/>-->
+<!--        &lt;!&ndash;执行环绕; advice-ref执行方法 . pointcut-ref切入点&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+
+<!--    方式二：自定义类-->
+<!--    <bean id="diy" class="cn.edu.nyist.Diy.DiyPointCut"/>-->
+
+<!--    <aop:config>-->
+<!--&lt;!&ndash;        自定义切面，ref：要引用的类&ndash;&gt;-->
+<!--        <aop:aspect ref="diy">-->
+<!--&lt;!&ndash;            切入点&ndash;&gt;-->
+<!--            <aop:pointcut id="point" expression="execution(* cn.edu.nyist.Service.UserServiceImpl.*(..))"/>-->
+<!--&lt;!&ndash;            通知&ndash;&gt;-->
+<!--            <aop:before method="before" pointcut-ref="point"/>-->
+<!--            <aop:after method="after" pointcut-ref="point"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+</beans>
+
+

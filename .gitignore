@@ -1,0 +1,11 @@
+# 项目排除路径
+/Spring01-IOC-1/target/
+/Spring02-HelloSpring/target/
+/Spring03-IOC-2/target/
+/Spring04-DI/target/
+/Spring05-Autowired/target/
+/Spring06-Anno/target/
+/Spring07-JavaConfig/target/
+/Spring08-Proxy/target/
+/Spring09-AOP/target/
+/Spring10-MyBatis/target/
