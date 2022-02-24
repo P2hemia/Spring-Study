@@ -19,6 +19,7 @@
         <module>Spring08-Proxy</module>
         <module>Spring09-AOP</module>
         <module>Spring10-MyBatis</module>
+        <module>Spring11-Transaction</module>
     </modules>
 
     <properties>
